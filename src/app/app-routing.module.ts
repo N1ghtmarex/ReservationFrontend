@@ -5,6 +5,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { CreateIndividualReservationComponent } from './components/create-individual-reservation/create-individual-reservation.component';
 import { AddSectionReservationComponent } from './components/add-section-reservation/add-section-reservation.component';
+import { WeekScheduleComponent } from './components/week-schedule/week-schedule.component';
 
 const routes: Routes = [
   {path: '', component: BaseComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterPageComponent},
   {path: 'add-individual-reservation', component: CreateIndividualReservationComponent},
   {path: 'add-section-reservation', component: AddSectionReservationComponent},
+  {path: 'week-schedule', component: WeekScheduleComponent},
   {path: '**', redirectTo: '', component: BaseComponent}
 ];
 

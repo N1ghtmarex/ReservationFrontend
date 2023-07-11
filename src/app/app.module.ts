@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { CreateIndividualReservationComponent } from './components/create-individual-reservation/create-individual-reservation.component';
 import { AddSectionReservationComponent } from './components/add-section-reservation/add-section-reservation.component';
+import { WeekScheduleComponent } from './components/week-schedule/week-schedule.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AddSectionReservationComponent } from './components/add-section-reserva
     LoginPageComponent,
     RegisterPageComponent,
     CreateIndividualReservationComponent,
-    AddSectionReservationComponent
+    AddSectionReservationComponent,
+    WeekScheduleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<form>
+    <div>
+      <label>День недели</label>
+      <input [(ngModel)]="query.day" name="dayOfWeek" />
+    </div>
+    <div>
+        <button (click)="getReservations(query)">Получить</button>
+    </div>
+  </form>

@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SectionReservation } from '../models/addSectionReservationDto';
 import { Observable } from 'rxjs';
+import { ISectionReservations } from '../models/sectionReservations';
+import { GetWeekSectionReservations } from '../models/getWeekSectionReservationsDto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +13,18 @@ export class SectionReservationsService {
   apiUrl = 'https://localhost:7160/api/reservations/'
   apiVersion = '?api-version=1.0'
 
+  headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token')});
+  options = { headers: this.headers};
+
   constructor(private http: HttpClient) { }
 
-  addReservation(reservation: SectionReservation): Observable<any>{
-    const headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token')});
-    const options = { headers: headers };
+  getReservations(query: GetWeekSectionReservations): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'section/' + query.day + this.apiVersion, this.options)
+  }
 
-    return this.http.post(this.apiUrl + 'section' + this.apiVersion, reservation, options);
+  addReservation(reservation: SectionReservation): Observable<any>{
+    
+
+    return this.http.post(this.apiUrl + 'section' + this.apiVersion, reservation, this.options);
   }
 }
