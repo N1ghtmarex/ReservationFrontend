@@ -1,0 +1,25 @@
+<form>
+    <div>
+      <label>День недели</label>
+      <input [(ngModel)]="reservation.dayOfWeek" name="date" type="number" />
+    </div>
+    <div>
+        <label>Время проведения</label>
+        <input [(ngModel)]="reservation.time" name="duration" />
+    </div>
+    <div>
+        <label>Продолжительность</label>
+        <input [(ngModel)]="reservation.duration" name="duration" />
+    </div>
+    <div>
+        <label>Период проведения</label>
+        <input [(ngModel)]="reservation.period" name="sportName" />
+    </div>
+    <div>
+        <label>Название секции</label>
+        <input [(ngModel)]="reservation.sectionName" name="duration" />
+    </div>
+    <div>
+        <button (click)="addReservation(reservation)">Добавить</button>
+    </div>
+  </form>

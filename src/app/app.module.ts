@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { CreateIndividualReservationComponent } from './components/create-individual-reservation/create-individual-reservation.component';
+import { AddSectionReservationComponent } from './components/add-section-reservation/add-section-reservation.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CreateIndividualReservationComponent } from './components/create-indivi
     BaseComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    CreateIndividualReservationComponent
+    CreateIndividualReservationComponent,
+    AddSectionReservationComponent
   ],
   imports: [
     BrowserModule,
