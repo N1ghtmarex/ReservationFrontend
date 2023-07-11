@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  isLoggedIn(){
+    if (localStorage.getItem('token') != null){
+      return true
+    }
+    else return false
+  }
+
+  logout(){
+    localStorage.clear()
+  }
 }

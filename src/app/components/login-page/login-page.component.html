@@ -1,0 +1,17 @@
+<form>
+    <div>
+      <label>Телефон</label>
+      <input [(ngModel)]="user.Phone" type="text" name="phone" />
+    </div>
+    <div>
+      <label>Пароль</label>
+      <input [(ngModel)]="user.Password" type="password" name="password" />
+    </div>
+    
+    <div>
+        <button (click)="loginAsClient(user)">Войти как клиент</button>
+        <button (click)="loginAsCoach(user)">Войти как тренер</button>
+    </div>
+    
+  </form>
+  

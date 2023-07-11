@@ -7,7 +7,8 @@
         </div>
         <span class="example-spacer"></span>
         <div class="toolbar no-select">
-            <mat-icon>account_circle</mat-icon>
+            <mat-icon *ngIf="!isLoggedIn()" routerLink="/auth">account_circle</mat-icon>
+            <mat-icon (click)="logout()" *ngIf="isLoggedIn()" routerLink="/">logout</mat-icon>
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
