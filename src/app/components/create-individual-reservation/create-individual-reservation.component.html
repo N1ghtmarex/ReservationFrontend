@@ -1,0 +1,21 @@
+
+
+<form>
+    
+    <div>
+      <label>Дата</label>
+      <input [(ngModel)]="reservation.reservationDate" name="date" />
+    </div>
+    <div>
+        <label>Продолжительность</label>
+        <input [(ngModel)]="reservation.duration" name="duration" />
+      </div>
+      <div>
+        <label>Вид спорта</label>
+        <input [(ngModel)]="reservation.sportName" name="sportName" />
+      </div>
+    <div>
+        <button (click)="addReservation(reservation)">Добавить</button>
+    </div>
+    
+  </form>

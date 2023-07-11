@@ -13,6 +13,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { CreateIndividualReservationComponent } from './components/create-individual-reservation/create-individual-reservation.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RegisterPageComponent } from './components/register-page/register-page.
     HeaderComponent,
     BaseComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    CreateIndividualReservationComponent
   ],
   imports: [
     BrowserModule,
