@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     BaseComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
