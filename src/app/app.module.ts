@@ -18,6 +18,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { CreateIndividualReservationComponent } from './components/create-individual-reservation/create-individual-reservation.component';
 import { AddSectionReservationComponent } from './components/add-section-reservation/add-section-reservation.component';
 import { WeekScheduleComponent } from './components/week-schedule/week-schedule.component';
+import { CreateIndividualRecordComponent } from './components/create-individual-record/create-individual-record.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { WeekScheduleComponent } from './components/week-schedule/week-schedule.
     RegisterPageComponent,
     CreateIndividualReservationComponent,
     AddSectionReservationComponent,
-    WeekScheduleComponent
+    WeekScheduleComponent,
+    CreateIndividualRecordComponent
   ],
   imports: [
     BrowserModule,
