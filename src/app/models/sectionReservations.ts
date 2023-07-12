@@ -1,12 +1,12 @@
 import { ISection } from "./section";
 
 export interface ISectionReservations {
-    Id: string,
+    id: string,
     dayOfWeek: number,
     startTime: string,
     endTime: string,
-    Period: string,
-    Section: ISection
+    period: string,
+    section: ISection
 }
 
 

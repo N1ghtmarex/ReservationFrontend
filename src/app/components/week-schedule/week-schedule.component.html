@@ -1,9 +1,28 @@
 <form>
     <div>
       <label>День недели</label>
-      <input [(ngModel)]="query.day" name="dayOfWeek" />
+      <input [(ngModel)]="query.day" name="dayOfWeek"/>
     </div>
     <div>
         <button (click)="getReservations(query)">Получить</button>
     </div>
   </form>
+
+  <div *ngIf="reservation">
+    <mat-card class="card" *ngFor="let r of reservation">
+      <mat-card-title>Секция: {{r.section.name}}</mat-card-title>
+      <mat-card-content>
+        <p>Начало: {{r.startTime}}</p>
+        <p>Конец: {{r.endTime}}</p>
+        <p>Период проведения: {{r.period}}</p>
+        <p>Вид спорта: {{r.section.sport.name}}</p>
+        <p>Зал: {{r.section.room.name}}</p>
+        <p>Тренер: {{r.section.coach.surname}} {{r.section.coach.name}} {{r.section.coach.patronymic}}</p>
+        <p>Телефон тренера: {{r.section.coach.phone}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="button" mat-flat-button color="primary" (click)="print(r.id)">Записаться</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

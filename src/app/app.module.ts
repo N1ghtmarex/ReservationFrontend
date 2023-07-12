@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/UI/header/header.component';
 import { BaseComponent } from './components/base/base.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -37,7 +39,9 @@ import { WeekScheduleComponent } from './components/week-schedule/week-schedule.
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

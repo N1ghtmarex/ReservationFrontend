@@ -1,4 +1,4 @@
 export interface ISport {
-    Id: string,
-    Name: string
+    id: string,
+    name: string
 }

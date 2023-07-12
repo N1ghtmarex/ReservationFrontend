@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { GetWeekSectionReservations } from 'src/app/models/getWeekSectionReservationsDto';
+import { ISectionReservations } from 'src/app/models/sectionReservations';
 import { SectionReservationsService } from 'src/app/services/section-reservations.service';
 
 @Component({
@@ -13,6 +14,8 @@ export class WeekScheduleComponent implements OnInit {
 
   query = new GetWeekSectionReservations();
 
+  reservation!: ISectionReservations[];
+
   constructor(private reservationService: SectionReservationsService){
 
   }
@@ -24,8 +27,13 @@ export class WeekScheduleComponent implements OnInit {
   }
 
   getReservations(query: GetWeekSectionReservations) {
-    this.reservationService.getReservations(query).subscribe((any) => {
-      console.log(any)
+    this.reservationService.getReservations(query).subscribe((data) => {
+      this.reservation = data.sectionReservation;
+      console.log(this.reservation)
     })
+  }
+
+  print(string: string) {
+    console.log(string)
   }
 }
