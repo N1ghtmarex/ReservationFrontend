@@ -18,4 +18,8 @@ export class IndividualRecordsService {
   addIndividualRecord(id: string): Observable<any> {
     return this.http.post(this.apiUrl + id + this.apiVersion, null, this.options);
   }
+
+  getDayRecords(day: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + day + this.apiVersion, this.options);
+  }
 }

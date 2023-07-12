@@ -10,7 +10,7 @@ import { GetWeekSectionReservations } from '../models/getWeekSectionReservations
 })
 export class SectionReservationsService {
 
-  apiUrl = 'https://localhost:7160/api/reservations/'
+  apiUrl = 'https://localhost:7160/api/'
   apiVersion = '?api-version=1.0'
 
   headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token')});
@@ -18,13 +18,13 @@ export class SectionReservationsService {
 
   constructor(private http: HttpClient) { }
 
-  getReservations(query: GetWeekSectionReservations): Observable<any> {
-    return this.http.get<any>(this.apiUrl + 'section/' + query.day + this.apiVersion, this.options)
+  getDayReservations(day: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'records/sections/day=' + day + this.apiVersion, this.options)
   }
 
   addReservation(reservation: SectionReservation): Observable<any>{
     
 
-    return this.http.post(this.apiUrl + 'section' + this.apiVersion, reservation, this.options);
+    return this.http.post(this.apiUrl + 'reservations/section' + this.apiVersion, reservation, this.options);
   }
 }

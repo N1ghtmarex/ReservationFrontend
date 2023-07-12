@@ -12,7 +12,7 @@ import { SectionReservationsService } from 'src/app/services/section-reservation
 export class WeekScheduleComponent implements OnInit {
   form!: FormGroup
 
-  query = new GetWeekSectionReservations();
+  query!: string;
 
   reservation!: ISectionReservations[];
 
@@ -26,8 +26,8 @@ export class WeekScheduleComponent implements OnInit {
     })
   }
 
-  getReservations(query: GetWeekSectionReservations) {
-    this.reservationService.getReservations(query).subscribe((data) => {
+  getReservations(query: string) {
+    this.reservationService.getDayReservations(query).subscribe((data) => {
       this.reservation = data.sectionReservation;
       console.log(this.reservation)
     })

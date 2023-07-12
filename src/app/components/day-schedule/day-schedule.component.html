@@ -1,0 +1,37 @@
+<form>
+    <div>
+        <label>Дата</label>
+        <input [(ngModel)]="day" name="day" />
+    </div>
+    <div>
+        <button (click)="getReservations(day)">Получить</button>
+    </div>
+
+    <div *ngIf="sectionRecords">
+        <mat-card class="card" *ngFor="let sr of sectionRecords">
+            <mat-card-title>Секция: {{sr.section.name}}</mat-card-title>
+            <mat-card-content>
+                <p>Начало: {{sr.startTime}}</p>
+                <p>Конец: {{sr.endTime}}</p>
+                <p>Период проведения: {{sr.period}}</p>
+                <p>Вид спорта: {{sr.section.sport.name}}</p>
+                <p>Зал: {{sr.section.room.name}}</p>
+                <p>Тренер: {{sr.section.coach.surname}} {{sr.section.coach.name}} {{sr.section.coach.patronymic}}</p>
+                <p>Телефон тренера: {{sr.section.coach.phone}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div *ngIf="individualRecords">
+        <mat-card class="card" *ngFor="let ir of individualRecords">
+            <mat-card-title>Индивидуальное занятие</mat-card-title>
+            <mat-card-content>
+                <p>Начало: {{ir.date}}</p>
+                <p>Конец: {{ir.endDate}}</p>
+                <p>Вид спорта: {{ir.sport.name}}</p>
+                <p>Тренер: {{ir.coach.surname}} {{ir.coach.name}} {{ir.coach.patronymic}}</p>
+                <p>Телефон тренера: {{ir.coach.phone}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</form>
