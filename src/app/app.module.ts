@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +23,7 @@ import { WeekScheduleComponent } from './components/week-schedule/week-schedule.
 import { CreateIndividualRecordComponent } from './components/create-individual-record/create-individual-record.component';
 import { DayScheduleComponent } from './components/day-schedule/day-schedule.component';
 import { DatePipe } from '@angular/common';
+import { AddSectionComponent } from './components/add-section/add-section.component';
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { DatePipe } from '@angular/common';
     AddSectionReservationComponent,
     WeekScheduleComponent,
     CreateIndividualRecordComponent,
-    DayScheduleComponent
+    DayScheduleComponent,
+    AddSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { DatePipe } from '@angular/common';
     HttpClientModule,
     FormsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

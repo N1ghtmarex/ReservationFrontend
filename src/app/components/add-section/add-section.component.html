@@ -1,0 +1,34 @@
+<div>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Название секции</mat-label>
+          <input matInput [(ngModel)]="name" name="name">
+        </mat-form-field>
+    </form>
+</div>
+
+<div>
+    <mat-form-field>
+        <mat-label>Вид спорта</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let sport of sports" [value]="sport.name" (click)="sportId = sport.id">
+            {{sport.name}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field>
+        <mat-label>Зал</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let room of rooms" [value]="room.name" (click)="roomId = room.id">
+            {{room.name}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div>
+    <button (click)="addSection()" mat-raised-button color="primary">Добавить</button>
+</div>
