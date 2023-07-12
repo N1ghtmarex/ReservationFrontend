@@ -22,6 +22,10 @@ export class SectionReservationsService {
     return this.http.get<any>(this.apiUrl + 'records/sections/day=' + day + this.apiVersion, this.options)
   }
 
+  getWeekReservations(date: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'records/sections/' + date + this.apiVersion, this.options)
+  }
+
   addReservation(reservation: SectionReservation): Observable<any>{
     
 

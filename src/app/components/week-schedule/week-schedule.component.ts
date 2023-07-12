@@ -1,7 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { GetWeekSectionReservations } from 'src/app/models/getWeekSectionReservationsDto';
+import { IIndividualRecords } from 'src/app/models/individualRecords';
 import { ISectionReservations } from 'src/app/models/sectionReservations';
+import { IndividualRecordsService } from 'src/app/services/individual-records.service';
 import { SectionReservationsService } from 'src/app/services/section-reservations.service';
 
 @Component({
@@ -12,12 +14,14 @@ import { SectionReservationsService } from 'src/app/services/section-reservation
 export class WeekScheduleComponent implements OnInit {
   form!: FormGroup
 
-  query!: string;
+  day!: string;
 
-  reservation!: ISectionReservations[];
+  individualRecords!: IIndividualRecords[];
+  sectionRecords!: ISectionReservations[];
 
-  constructor(private reservationService: SectionReservationsService){
-
+  constructor(private sectionReservationService: SectionReservationsService,
+              private individualReservationService: IndividualRecordsService,
+              private datePipe: DatePipe){
   }
 
   ngOnInit(): void {
@@ -26,10 +30,20 @@ export class WeekScheduleComponent implements OnInit {
     })
   }
 
-  getReservations(query: string) {
-    this.reservationService.getDayReservations(query).subscribe((data) => {
-      this.reservation = data.sectionReservation;
-      console.log(this.reservation)
+  getReservations(day: string) {
+    this.individualRecords = []
+    this.sectionRecords = []
+
+    this.sectionReservationService.getWeekReservations(day).subscribe((any) => {
+      this.sectionRecords = any.sectionReservation;
+    })
+    this.individualReservationService.getWeekRecords(day).subscribe((any) => {
+      this.individualRecords = any.individualReservations;
+      
+      for (var item in this.individualRecords){
+        this.individualRecords[item].date = this.datePipe.transform(this.individualRecords[item].date, 'HH:mm dd-MM-yyyy')!
+        this.individualRecords[item].endDate = this.datePipe.transform(this.individualRecords[item].endDate, 'HH:mm dd-MM-yyyy')!
+      }
     })
   }
 

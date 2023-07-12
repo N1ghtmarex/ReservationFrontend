@@ -22,4 +22,8 @@ export class IndividualRecordsService {
   getDayRecords(day: string): Observable<any> {
     return this.http.get<any>(this.apiUrl + day + this.apiVersion, this.options);
   }
+
+  getWeekRecords(date: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'individual/week=' + date + this.apiVersion, this.options)
+  }
 }

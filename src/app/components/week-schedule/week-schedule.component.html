@@ -1,28 +1,40 @@
 <form>
     <div>
       <label>День недели</label>
-      <input [(ngModel)]="query" name="dayOfWeek"/>
+      <input [(ngModel)]="day" name="dayOfWeek"/>
     </div>
     <div>
-        <button (click)="getReservations(query)">Получить</button>
+        <button (click)="getReservations(day)">Получить</button>
     </div>
   </form>
 
-  <div *ngIf="reservation">
-    <mat-card class="card" *ngFor="let r of reservation">
-      <mat-card-title>Секция: {{r.section.name}}</mat-card-title>
+  <div *ngIf="sectionRecords">
+    <mat-card class="card" *ngFor="let sr of sectionRecords">
+      <mat-card-title>Секция: {{sr.section.name}}</mat-card-title>
       <mat-card-content>
-        <p>Начало: {{r.startTime}}</p>
-        <p>Конец: {{r.endTime}}</p>
-        <p>Период проведения: {{r.period}}</p>
-        <p>Вид спорта: {{r.section.sport.name}}</p>
-        <p>Зал: {{r.section.room.name}}</p>
-        <p>Тренер: {{r.section.coach.surname}} {{r.section.coach.name}} {{r.section.coach.patronymic}}</p>
-        <p>Телефон тренера: {{r.section.coach.phone}}</p>
+        <p>Начало: {{sr.startTime}}</p>
+        <p>Конец: {{sr.endTime}}</p>
+        <p>Период проведения: {{sr.period}}</p>
+        <p>Вид спорта: {{sr.section.sport.name}}</p>
+        <p>Зал: {{sr.section.room.name}}</p>
+        <p>Тренер: {{sr.section.coach.surname}} {{sr.section.coach.name}} {{sr.section.coach.patronymic}}</p>
+        <p>Телефон тренера: {{sr.section.coach.phone}}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button class="button" mat-flat-button color="primary" (click)="print(r.id)">Записаться</button>
+        <button class="button" mat-flat-button color="primary" (click)="print(sr.id)">Отменить запись?</button>
       </mat-card-actions>
     </mat-card>
   </div>
   
+  <div *ngIf="individualRecords">
+    <mat-card class="card" *ngFor="let ir of individualRecords">
+        <mat-card-title>Индивидуальное занятие</mat-card-title>
+        <mat-card-content>
+            <p>Начало: {{ir.date}}</p>
+            <p>Конец: {{ir.endDate}}</p>
+            <p>Вид спорта: {{ir.sport.name}}</p>
+            <p>Тренер: {{ir.coach.surname}} {{ir.coach.name}} {{ir.coach.patronymic}}</p>
+            <p>Телефон тренера: {{ir.coach.phone}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
