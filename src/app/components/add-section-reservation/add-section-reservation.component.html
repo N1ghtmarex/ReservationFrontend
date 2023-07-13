@@ -16,8 +16,14 @@
         <input [(ngModel)]="reservation.period" name="sportName" />
     </div>
     <div>
-        <label>Название секции</label>
-        <input [(ngModel)]="reservation.sectionName" name="duration" />
+        <mat-form-field>
+            <mat-label>Секция</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let section of sections" [value]="section.name" (click)="reservation.sectionId = section.id">
+                {{section.name}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
     <div>
         <button (click)="addReservation(reservation)">Добавить</button>

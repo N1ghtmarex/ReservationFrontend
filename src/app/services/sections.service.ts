@@ -18,4 +18,8 @@ export class SectionsService {
   addSection(name: string, sportId: string, roomId: string): Observable<any> {
     return this.http.post(this.apiUrl + this.apiVersion, {name: name, sportId: sportId, roomId: roomId}, this.options);
   }
+
+  getSection(): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'all' + this.apiVersion, this.options);
+  }
 }

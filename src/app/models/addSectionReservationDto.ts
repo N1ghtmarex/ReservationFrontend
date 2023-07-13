@@ -3,5 +3,5 @@ export class SectionReservation {
     time = '';
     duration = '';
     period = '';
-    sectionName = '';
+    sectionId = '';
 }
