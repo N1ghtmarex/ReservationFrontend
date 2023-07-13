@@ -24,6 +24,7 @@ import { CreateIndividualRecordComponent } from './components/create-individual-
 import { DayScheduleComponent } from './components/day-schedule/day-schedule.component';
 import { DatePipe } from '@angular/common';
 import { AddSectionComponent } from './components/add-section/add-section.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AddSectionComponent } from './components/add-section/add-section.compon
     MatCardModule,
     MatButtonModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    FullCalendarModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -7,6 +7,8 @@
         <button (click)="getReservations(day)">Получить</button>
     </div>
 
+    <div id="calendar"></div>
+
     <div *ngIf="sectionRecords">
         <mat-card class="card" *ngFor="let sr of sectionRecords">
             <mat-card-title>Секция: {{sr.section.name}}</mat-card-title>
