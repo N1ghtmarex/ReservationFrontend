@@ -1,21 +1,23 @@
-
-
 <form>
-    
-    <div>
-      <label>Дата</label>
-      <input [(ngModel)]="reservation.reservationDate" name="date" />
-    </div>
-    <div>
-        <label>Продолжительность</label>
-        <input [(ngModel)]="reservation.duration" name="duration" />
-      </div>
-      <div>
-        <label>Вид спорта</label>
-        <input [(ngModel)]="reservation.sportName" name="sportName" />
-      </div>
-    <div>
-        <button (click)="addReservation(reservation)">Добавить</button>
-    </div>
-    
-  </form>
+  <div>
+    <mat-label>Дата</mat-label>
+    <input matInput [(ngModel)]="reservation.reservationDate" name="date" />
+  </div>
+  <div>
+    <mat-label>Продолжительность</mat-label>
+    <input matInput [(ngModel)]="reservation.duration" name="duration" />
+  </div>
+  <div>
+    <mat-form-field>
+        <mat-label>Вид спорта</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let sport of sports" [value]="sport.name" (click)="reservation.sportId = sport.id">
+            {{sport.name}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+  <div>
+    <button (click)="addReservation(reservation)">Добавить</button>
+  </div>
+</form>
