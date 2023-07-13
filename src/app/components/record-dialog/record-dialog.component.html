@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Информация о событии</h2>
+<mat-dialog-content class="mat-typography">
+  
+    <div *ngIf="data.event.extendedProps.section">
+        <h3>Занятие секции</h3>
+        <h3>Секция: {{data.event.extendedProps.section.name}}</h3>
+        <h3>Начало: {{data.event.extendedProps.startTime}} <br>Конец: {{data.event.extendedProps.endTime}} </h3>
+        <h3>Вид спорта: {{data.event.extendedProps.section.sport.name}}</h3>
+        <h3>Зал: {{data.event.extendedProps.section.room.name}}</h3>
+        <h3>Тренер: {{data.event.extendedProps.section.coach.surname}} {{data.event.extendedProps.section.coach.name}} {{data.event.extendedProps.section.coach.patronymic}}</h3>
+        <h3>Телефон тренера: {{data.event.extendedProps.section.coach.phone}}</h3>
+    </div>
+
+    <div *ngIf="data.event.extendedProps.coach">
+        <h3>Индивидуальное занятие</h3>
+        <h3>Тренер: {{data.event.extendedProps.coach.surname}} {{data.event.extendedProps.coach.name}} {{data.event.extendedProps.coach.patronymic}}</h3>
+        <h3>Телефон тренера: {{data.event.extendedProps.coach.phone}}</h3>
+        <h3>Начало: {{data.event.extendedProps.date}} <br>Конец: {{data.event.extendedProps.endDate}} </h3>
+        <h3>Вид спорта: {{data.event.extendedProps.sport.name}} </h3>
+    </div>
+  
+</mat-dialog-content>

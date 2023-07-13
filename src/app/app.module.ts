@@ -25,6 +25,8 @@ import { DayScheduleComponent } from './components/day-schedule/day-schedule.com
 import { DatePipe } from '@angular/common';
 import { AddSectionComponent } from './components/add-section/add-section.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { RecordDialogComponent } from './components/record-dialog/record-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     WeekScheduleComponent,
     CreateIndividualRecordComponent,
     DayScheduleComponent,
-    AddSectionComponent
+    AddSectionComponent,
+    RecordDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     MatButtonModule,
     MatSelectModule,
     MatInputModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatDialogModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

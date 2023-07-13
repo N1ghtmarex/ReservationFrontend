@@ -8,6 +8,9 @@ import { IndividualRecordsService } from 'src/app/services/individual-records.se
 import { SectionReservationsService } from 'src/app/services/section-reservations.service';
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
+import { MatDialog } from '@angular/material/dialog';
+import { RecordDialogComponent } from '../record-dialog/record-dialog.component';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-week-schedule',
@@ -25,7 +28,8 @@ export class WeekScheduleComponent implements OnInit {
 
   constructor(private sectionReservationService: SectionReservationsService,
               private individualReservationService: IndividualRecordsService,
-              private datePipe: DatePipe){
+              private datePipe: DatePipe,
+              public dialog: MatDialog){
   }
 
   ngOnInit(): void {
@@ -70,9 +74,7 @@ export class WeekScheduleComponent implements OnInit {
       slotMinTime: '8:00',
       height: 'auto',
       allDaySlot: false,
-      eventClick: function(info) {
-        console.log(info.event.id)
-      }
+      eventClick: this.openDialog.bind(this)
     });
 
     this.sectionReservationService.getWeekReservations(day).subscribe((any) => {
@@ -80,6 +82,7 @@ export class WeekScheduleComponent implements OnInit {
       if (this.sectionRecords){
         for (var item in this.sectionRecords) {
           calendar.addEvent({
+            extendedProps: this.sectionRecords[item],
             title: 'Занятие секции: ' + this.sectionRecords[item].section.name,
             daysOfWeek: [this.sectionRecords[item].dayOfWeek],
             startTime: this.sectionRecords[item].startTime,
@@ -107,7 +110,7 @@ export class WeekScheduleComponent implements OnInit {
           let splittedEndDateOnly = splittedEndDate[1].split('-', 3)
   
           calendar.addEvent({
-            id: this.individualRecords[item].id,
+            extendedProps: this.individualRecords[item],
             title: 'Индивидуальное занятие',
             start:  splittedStartDateOnly[2] + '-' + splittedStartDateOnly[1] + '-' + splittedStartDateOnly[0] + ' ' + splittedStartDate[0],
             end: splittedEndDateOnly[2] + '-' + splittedEndDateOnly[1] + '-' + splittedEndDateOnly[0] + ' ' + splittedEndDate[0],
@@ -122,5 +125,12 @@ export class WeekScheduleComponent implements OnInit {
 
   print(string: string) {
     console.log(string)
+  }
+
+  openDialog(data: any) {
+    console.log(data.event.extendedProps)
+    const dialogRef = this.dialog.open(RecordDialogComponent, {
+      data: data
+    });
   }
 }
