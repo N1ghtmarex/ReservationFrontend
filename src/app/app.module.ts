@@ -28,6 +28,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { RecordDialogComponent } from './components/record-dialog/record-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddToSectionComponent } from './components/add-to-section/add-to-section.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { AddToSectionComponent } from './components/add-to-section/add-to-sectio
     MatSelectModule,
     MatInputModule,
     FullCalendarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
