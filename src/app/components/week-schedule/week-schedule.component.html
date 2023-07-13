@@ -1,10 +1,13 @@
-<div id="calendar"></div>
-<form>
+<form class="example-form">
   <div>
-    <label>Дата</label>
-    <input [(ngModel)]="day" name="dayOfWeek"/>
+    <mat-form-field class="example-full-width">
+      <mat-label>Дата</mat-label>
+      <input matInput [(ngModel)]="day" name="dayOfWeek"/>
+    </mat-form-field>
   </div>
   <div>
-    <button (click)="getReservations(day)">Получить</button>
+    <button mat-raised-button color="primary" (click)="getReservations(day)">Получить</button>
   </div>
 </form>
+
+<div id="calendar"></div>

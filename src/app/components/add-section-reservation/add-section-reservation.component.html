@@ -1,19 +1,27 @@
-<form>
+<form class="example-form">
     <div>
-      <label>День недели</label>
-      <input [(ngModel)]="reservation.dayOfWeek" name="date" type="number" />
+      <mat-form-field class="example-full-width">
+        <mat-label>День недели</mat-label>
+        <input matInput [(ngModel)]="reservation.dayOfWeek" name="date" type="number"/>
+      </mat-form-field>
     </div>
     <div>
-        <label>Время проведения</label>
-        <input [(ngModel)]="reservation.time" name="duration" />
+      <mat-form-field class="example-full-width">
+        <mat-label>Время проведения</mat-label>
+        <input matInput [(ngModel)]="reservation.time" name="duration" placeholder="чч:мм"/>
+      </mat-form-field>
     </div>
     <div>
-        <label>Продолжительность</label>
-        <input [(ngModel)]="reservation.duration" name="duration" />
+      <mat-form-field class="example-full-width">
+        <mat-label>Продолжительность</mat-label>
+        <input matInput [(ngModel)]="reservation.duration" name="duration" placeholder="чч:мм"/>
+      </mat-form-field>
     </div>
     <div>
-        <label>Период проведения</label>
-        <input [(ngModel)]="reservation.period" name="sportName" />
+      <mat-form-field class="example-full-width">
+        <mat-label>Период проведения</mat-label>
+        <input matInput [(ngModel)]="reservation.period" name="period" placeholder="дд-мм-гггг"/>
+      </mat-form-field>
     </div>
     <div>
         <mat-form-field>
@@ -26,6 +34,6 @@
         </mat-form-field>
     </div>
     <div>
-        <button (click)="addReservation(reservation)">Добавить</button>
+        <button mat-raised-button color="primary" (click)="addReservation(reservation)">Добавить</button>
     </div>
   </form>

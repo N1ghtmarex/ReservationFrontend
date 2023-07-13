@@ -2,8 +2,10 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IIndividualRecords } from 'src/app/models/individualRecords';
+import { ISport } from 'src/app/models/sport';
 import { IndividualRecordsService } from 'src/app/services/individual-records.service';
 import { IndividualReservationsService } from 'src/app/services/individual-reservations.service';
+import { SportsService } from 'src/app/services/sports.service';
 
 @Component({
   selector: 'app-create-individual-record',
@@ -15,16 +17,21 @@ export class CreateIndividualRecordComponent implements OnInit {
   reservations!: IIndividualRecords[]
   id!: string
   date!: string
+  time!: string
+  sports!: ISport[]
+  sportId!: string
 
   constructor(private recordService: IndividualRecordsService,
               private reservationService: IndividualReservationsService,
-              private datePipe: DatePipe){
+              private datePipe: DatePipe,
+              private sportService: SportsService){
   }
 
   ngOnInit(): void {
     this.form = new FormGroup({
       id: new FormControl(null, [Validators.required]),
     })
+    this.getSports()
   }
 
   createRecord(id: string) {
@@ -32,8 +39,15 @@ export class CreateIndividualRecordComponent implements OnInit {
     })
   }
 
-  getReservations(date: string) {
-    this.reservationService.getReservations(date).subscribe((any) => {
+  getSports() {
+    this.sportService.getSports().subscribe((any) => {
+      this.sports = any.sports
+    })
+  }
+
+  getReservations(date: string, time: string, sportId: string) {
+    this.reservations = []
+    this.reservationService.getReservations(date, time, sportId).subscribe((any) => {
       this.reservations = any.individualReservations
 
       if(this.reservations){

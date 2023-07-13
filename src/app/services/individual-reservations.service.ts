@@ -20,7 +20,37 @@ export class IndividualReservationsService {
     return this.http.post(this.apiUrl + 'individual' + this.apiVersion, reservation, this.options);
   }
 
-  getReservations(date: string): Observable<any> {
-    return this.http.get<any>(this.apiUrl + 'individual/' + date + this.apiVersion, this.options);
+  getReservations(date: string, time: string, sportId: string): Observable<any> {
+
+    let url = '?'
+
+    if (date && !time && !sportId){
+
+      url = '?date=' + date + '&'
+    }
+    else if (date && time && !sportId){
+      let splitTime = time.split(':', 2)
+      url = '?date=' + date + '&time=' + splitTime[0] + '%3A' + splitTime[1] + '&'
+    }
+    else if (date && time && sportId){
+      let splitTime = time.split(':', 2)
+      url = '?date=' + date + '&time=' + splitTime[0] + '%3A' + splitTime[1] + '&sportId=' + sportId + '&'
+    }
+    else if (date && !time && sportId) {
+      url = '?date=' + date + '&sportId=' + sportId + '&'
+    }
+    else if (!date && time && !sportId) {
+      let splitTime = time.split(':', 2)
+      url = '?time=' + splitTime[0] + '%3A' + splitTime[1] + '&'
+    }
+    else if (!date && time && sportId){ 
+      let splitTime = time.split(':', 2)
+      url = '?time=' + splitTime[0] + '%3A' + splitTime[1] + '&sportId=' + sportId + '&'
+    }
+    else if (!date && !time && sportId) {
+      url = '?sportId=' + sportId + '&'
+    }
+
+    return this.http.get<any>(this.apiUrl + 'individual' + url + 'api-version=1.0', this.options);
   }
 }

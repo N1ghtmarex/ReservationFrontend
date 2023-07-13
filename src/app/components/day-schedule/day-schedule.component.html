@@ -1,11 +1,14 @@
-<form>
+<form class="example-form">
     <div>
-        <label>Дата</label>
-        <input [(ngModel)]="day" name="day" />
+        <mat-form-field class="example-full-width">
+            <mat-label>Дата</mat-label>
+            <input matInput [(ngModel)]="day" name="day" />
+        </mat-form-field>
     </div>
     <div>
-        <button (click)="getReservations(day)">Получить</button>
+        <button mat-raised-button color="primary" (click)="getReservations(day)">Получить</button>
     </div>
+</form>
 
     <div id="calendar"></div>
 
@@ -36,4 +39,3 @@
             </mat-card-content>
         </mat-card>
     </div>
-</form>
