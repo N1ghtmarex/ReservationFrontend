@@ -13,13 +13,14 @@ export class IndividualReservationsService {
 
   constructor(private http: HttpClient) { }
 
-  
+  headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token')});
+  options = { headers: this.headers };
   
   addReservation(reservation: IndividualReservation): Observable<any>{
+    return this.http.post(this.apiUrl + 'individual' + this.apiVersion, reservation, this.options);
+  }
 
-    const headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token')});
-    const options = { headers: headers };
-
-    return this.http.post(this.apiUrl + 'individual' + this.apiVersion, reservation, options);
+  getReservations(date: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'individual/' + date + this.apiVersion, this.options);
   }
 }

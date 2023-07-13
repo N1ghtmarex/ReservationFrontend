@@ -1,9 +1,22 @@
 <form>
     <div>
-        <label>Id</label>
-        <input [(ngModel)]="id" name="id"/>
+        <label>Дата</label>
+        <input [(ngModel)]="date" name="date"/>
     </div>
     <div>
-        <button (click)="createRecord(id)">Записаться</button>
+        <button (click)="getReservations(date)">Найти</button>
     </div>
 </form>
+
+<div *ngIf="reservations">
+    <mat-card *ngFor="let r of reservations">
+        <mat-card-content> 
+            <h3>Тренер: {{r.coach.surname}} {{r.coach.name}} {{r.coach.patronymic}}</h3>
+            <h3>Телефон тренера: {{r.coach.phone}}</h3>
+            <h3>Вид спорта: {{r.sport.name}}</h3>
+            <h3>Начало: {{r.date}}</h3>
+            <h3>Конец: {{r.endDate}}</h3>
+        </mat-card-content>
+        <button mat-button (click)="createRecord(r.id)">Записаться</button>
+    </mat-card>
+</div>
