@@ -27,6 +27,7 @@ import { AddSectionComponent } from './components/add-section/add-section.compon
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { RecordDialogComponent } from './components/record-dialog/record-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AddToSectionComponent } from './components/add-to-section/add-to-section.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     CreateIndividualRecordComponent,
     DayScheduleComponent,
     AddSectionComponent,
-    RecordDialogComponent
+    RecordDialogComponent,
+    AddToSectionComponent
   ],
   imports: [
     BrowserModule,

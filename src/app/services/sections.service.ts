@@ -22,4 +22,12 @@ export class SectionsService {
   getSection(): Observable<any> {
     return this.http.get<any>(this.apiUrl + 'all' + this.apiVersion, this.options);
   }
+
+  getSectionForRecord(): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'free' + this.apiVersion, this.options);
+  }
+
+  addClientToSection(sectionId: string): Observable<any> {
+    return this.http.post(this.apiUrl + 'add-to-section=' + sectionId, this.options);
+  }
 }

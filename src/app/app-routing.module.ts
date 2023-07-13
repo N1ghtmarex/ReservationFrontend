@@ -9,6 +9,7 @@ import { WeekScheduleComponent } from './components/week-schedule/week-schedule.
 import { CreateIndividualRecordComponent } from './components/create-individual-record/create-individual-record.component';
 import { DayScheduleComponent } from './components/day-schedule/day-schedule.component';
 import { AddSectionComponent } from './components/add-section/add-section.component';
+import { AddToSectionComponent } from './components/add-to-section/add-to-section.component';
 
 const routes: Routes = [
   {path: '', component: BaseComponent},
@@ -20,6 +21,8 @@ const routes: Routes = [
   {path: 'create-individual-record', component: CreateIndividualRecordComponent},
   {path: 'day-schedule', component: DayScheduleComponent},
   {path: 'add-section', component: AddSectionComponent},
+  {path: 'add-to-section', component: AddToSectionComponent},
+  
 
   {path: '**', redirectTo: '', component: BaseComponent}
 ];
