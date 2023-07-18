@@ -10,7 +10,6 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import { MatDialog } from '@angular/material/dialog';
 import { RecordDialogComponent } from '../record-dialog/record-dialog.component';
-import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-week-schedule',
@@ -57,7 +56,13 @@ export class WeekScheduleComponent implements OnInit {
       initialView: 'timeGridWeek',
       initialDate: initialDate[2] + '-' + initialDate[1] + '-' + initialDate[0],
       firstDay: dayOfWeek,
-      headerToolbar: false,
+      buttonText: {
+        day: 'День',
+        week: 'Неделя'
+      },
+      headerToolbar: {
+        right: 'timeGridDay,timeGridWeek',
+      },
       slotLabelFormat: {
           hour: '2-digit',
           minute: '2-digit',

@@ -21,7 +21,6 @@ import { CreateIndividualReservationComponent } from './components/create-indivi
 import { AddSectionReservationComponent } from './components/add-section-reservation/add-section-reservation.component';
 import { WeekScheduleComponent } from './components/week-schedule/week-schedule.component';
 import { CreateIndividualRecordComponent } from './components/create-individual-record/create-individual-record.component';
-import { DayScheduleComponent } from './components/day-schedule/day-schedule.component';
 import { DatePipe } from '@angular/common';
 import { AddSectionComponent } from './components/add-section/add-section.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -44,7 +43,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AddSectionReservationComponent,
     WeekScheduleComponent,
     CreateIndividualRecordComponent,
-    DayScheduleComponent,
     AddSectionComponent,
     RecordDialogComponent,
     AddToSectionComponent
