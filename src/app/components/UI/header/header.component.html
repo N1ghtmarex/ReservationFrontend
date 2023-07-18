@@ -12,7 +12,7 @@
         <div class="toolbar no-select">
             <mat-icon *ngIf="!isLoggedIn()" routerLink="/auth">login</mat-icon>
             <mat-icon *ngIf="!isLoggedIn()" routerLink="/register">fiber_new</mat-icon>
-            <a href="/"><mat-icon (click)="logout()" *ngIf="isLoggedIn()">logout</mat-icon></a>
+            <a class="toolbar no-select" style="margin-left: 5px;" href="/"><mat-icon (click)="logout()" *ngIf="isLoggedIn()">logout</mat-icon></a>
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
