@@ -1,5 +1,5 @@
-<div *ngIf="sections">
-    <mat-card *ngFor="let s of sections">
+<div class="field" *ngIf="sections.length != 0">
+    <mat-card *ngFor="let s of sections" style="width: 600px; margin-top: 20px;">
         <mat-card-content> 
             <h3>Секция: {{s.name}}</h3>
             <h3>Тренер: {{s.coach.surname}} {{s.coach.name}} {{s.coach.patronymic}}</h3>
@@ -7,10 +7,10 @@
             <h3>Вид спорта: {{s.sport.name}}</h3>
             <h3>Зал: {{s.room.name}}</h3>
         </mat-card-content>
-        <button mat-button (click)="addToSection(s.id)">Записаться</button>
+        <button mat-raised-button color="primary" (click)="addToSection(s.id)" style="width: 15%; margin: 0 auto; width: 220px; margin-top: 15px; margin-bottom: 15px;">Записаться</button>
     </mat-card>
 </div>
 
-<div *ngIf="!sections">
+<div *ngIf="sections.length == 0">
     <h1>Доступные для записи секции не найдены.</h1>
 </div>

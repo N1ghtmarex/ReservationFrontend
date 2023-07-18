@@ -28,6 +28,6 @@ export class SectionsService {
   }
 
   addClientToSection(sectionId: string): Observable<any> {
-    return this.http.post(this.apiUrl + 'add-to-section=' + sectionId, this.options);
+    return this.http.post(this.apiUrl + 'add-to-section=' + sectionId + this.apiVersion, null, this.options);
   }
 }
