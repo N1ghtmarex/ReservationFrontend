@@ -29,6 +29,7 @@ import { RecordDialogComponent } from './components/record-dialog/record-dialog.
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddToSectionComponent } from './components/add-to-section/add-to-section.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ClientPageComponent } from './components/client-page/client-page.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     DayScheduleComponent,
     AddSectionComponent,
     RecordDialogComponent,
-    AddToSectionComponent
+    AddToSectionComponent,
+    ClientPageComponent
   ],
   imports: [
     BrowserModule,

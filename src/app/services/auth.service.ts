@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
@@ -13,6 +13,9 @@ export class AuthService {
 
   apiUrl = 'https://localhost:7160/api/'
   apiVersion = '?api-version=1.0'
+
+  headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('token')});
+  options = { headers: this.headers};
 
   register(){
 
@@ -32,5 +35,13 @@ export class AuthService {
 
   public registerAsCoach(user: NewProfile): Observable<any> {
     return this.http.post(this.apiUrl + 'coachs' + this.apiVersion, user);
+  }
+
+  public getCoachData(): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'coachs' + this.apiVersion, this.options);
+  }
+
+  public getClientData(): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'clients' + this.apiVersion, this.options);
   }
 }

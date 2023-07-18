@@ -1,15 +1,18 @@
 <p>
     <mat-toolbar color="primary">
       <mat-toolbar-row>
-        <div class="toolbar no-select" routerLink="">
-            <mat-icon>home</mat-icon>
-            <span>Reservation</span>
-        </div>
+        <a href="/">
+          <div class="toolbar no-select">
+              <mat-icon>home</mat-icon>
+              <span>Reservation</span>
+          </div>
+        </a>
         <span class="example-spacer"></span>
+        <div *ngIf="role">Добро пожаловать, {{surname}} {{name}} {{patronymic}}, вы вошли как {{role}}</div>
         <div class="toolbar no-select">
             <mat-icon *ngIf="!isLoggedIn()" routerLink="/auth">login</mat-icon>
             <mat-icon *ngIf="!isLoggedIn()" routerLink="/register">fiber_new</mat-icon>
-            <mat-icon (click)="logout()" *ngIf="isLoggedIn()" routerLink="/">logout</mat-icon>
+            <a href="/"><mat-icon (click)="logout()" *ngIf="isLoggedIn()">logout</mat-icon></a>
         </div>
       </mat-toolbar-row>
     </mat-toolbar>

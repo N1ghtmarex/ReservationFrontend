@@ -28,12 +28,14 @@ export class LoginPageComponent implements OnInit {
   loginAsCoach(user: User) {
     this.auth.loginAsCoach(user).subscribe((token: string) => {
       localStorage.setItem('token', token);
+      localStorage.setItem('role', 'тренер');
     });
   }
 
   loginAsClient(user: User) {
     this.auth.loginAsClient(user).subscribe((token: string) => {
       localStorage.setItem('token', token);
+      localStorage.setItem('role', 'клиент');
     });
   }
 

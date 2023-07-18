@@ -1,6 +1,13 @@
+<div *ngIf="!role">
+    <h1 style="text-align: center;">Для того, чтобы работать с сайтом вам необходимо</h1>
+    <h2 style="text-align: center;" routerLink="/register">Зарегистрироваться</h2>
+    <h1 style="text-align: center;">или</h1>
+    <h2 style="text-align: center;" routerLink="/auth">Войти</h2>
+</div>
+
 <mat-grid-list cols="2" rowHeight="5:1">
 
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="(role == 'тренер')">
         <div>
             <mat-card style="height: 100px; width: 400px;" routerLink="/add-individual-reservation">
                 <h2 style="margin-top: 25px;">Добавить занятие с тренером</h2>
@@ -9,7 +16,7 @@
         </div>
     </mat-grid-tile>
 
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="(role == 'тренер')">
         <div>
             <mat-card  style="height: 100px; width: 400px;" routerLink="/add-section-reservation">
                     <h2 style="margin-top: 25px;">Добавить занятие секции</h2>
@@ -18,16 +25,16 @@
         </div>
     </mat-grid-tile>
 
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="(role == 'клиент')">
         <div>
-            <mat-card  style="height: 100px; width: 400px;" routerLink="/create-individual-record">
+            <mat-card style="height: 100px; width: 400px;" routerLink="/create-individual-record">
                 <h2 style="margin-top: 25px;">Записаться на индивидуальное событие</h2>
             </mat-card>
             <mat-icon>arrow_right_alt</mat-icon>
         </div>
     </mat-grid-tile>
 
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="(role == 'клиент')">
         <div>
             <mat-card  style="height: 100px; width: 400px;" routerLink="/add-to-section">
             <h2 style="margin-top: 25px;">Записаться на секцию</h2>
@@ -36,7 +43,7 @@
         </div>
     </mat-grid-tile>
 
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="(role == 'клиент')">
         <div>
             <mat-card  style="height: 100px; width: 400px;" routerLink="/day-schedule">
                 <h2 style="margin-top: 25px;">Посмотреть расписание на день</h2>
@@ -45,7 +52,7 @@
         </div>
     </mat-grid-tile>
 
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="(role == 'клиент')">
         <div>
             <mat-card  style="height: 100px; width: 400px;" routerLink="/week-schedule">
                 <h2 style="margin-top: 25px;">Посмотреть расписание на неделю</h2>
@@ -54,7 +61,7 @@
         </div>
     </mat-grid-tile>
 
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="(role == 'тренер')">
         <div>
             <mat-card  style="height: 100px; width: 400px;" routerLink="/add-section">
                 <h2 style="margin-top: 25px;">Добавить секцию</h2>

@@ -10,6 +10,7 @@ import { CreateIndividualRecordComponent } from './components/create-individual-
 import { DayScheduleComponent } from './components/day-schedule/day-schedule.component';
 import { AddSectionComponent } from './components/add-section/add-section.component';
 import { AddToSectionComponent } from './components/add-to-section/add-to-section.component';
+import { ClientPageComponent } from './components/client-page/client-page.component';
 
 const routes: Routes = [
   {path: '', component: BaseComponent},
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path: 'day-schedule', component: DayScheduleComponent},
   {path: 'add-section', component: AddSectionComponent},
   {path: 'add-to-section', component: AddToSectionComponent},
-  
+  {path: 'client', component: ClientPageComponent},
 
   {path: '**', redirectTo: '', component: BaseComponent}
 ];
