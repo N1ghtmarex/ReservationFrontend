@@ -1,17 +1,23 @@
-<form>
-    <div>
-      <label>Телефон</label>
-      <input [(ngModel)]="user.Phone" type="text" name="phone" />
-    </div>
-    <div>
-      <label>Пароль</label>
-      <input [(ngModel)]="user.Password" type="password" name="password" />
-    </div>
-    
-    <div>
-        <button (click)="loginAsClient(user)">Войти как клиент</button>
-        <button (click)="loginAsCoach(user);">Войти как тренер</button>
-    </div>
-  
+<div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Телефон</mat-label>
+      <input matInput [(ngModel)]="user.Phone" type="text" name="phone" />
+    </mat-form-field>
   </form>
-  
+</div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Пароль</mat-label>
+      <input matInput [(ngModel)]="user.Password" type="password" name="password" />
+    </mat-form-field>
+  </form>
+<div>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="loginAsClient(user)">Войти как клиент</button>
+</div>
+
+<div>
+    <button mat-raised-button color="primary" style="margin-top: 20px;" (click)="loginAsCoach(user);">Войти как тренер</button>
+</div>

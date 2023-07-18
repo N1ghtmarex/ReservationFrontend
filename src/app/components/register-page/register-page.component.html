@@ -1,28 +1,52 @@
-<form>
-    <div>
-      <label>Имя</label>
-      <input [(ngModel)]="newUser.name" type="text" name="name" />
-    </div>
-    <div>
-      <label>Фамилия</label>
-      <input [(ngModel)]="newUser.surname" type="text" name="surname" />
-    </div>
-    <div>
-        <label>Отчество</label>
-        <input [(ngModel)]="newUser.patronymic" type="text" name="patronymic" />
-      </div>
-      <div>
-        <label>Телефон</label>
-        <input [(ngModel)]="newUser.phone" type="text" name="phone" />
-      </div>
-      <div>
-        <label>Пароль</label>
-        <input [(ngModel)]="newUser.password" type="password" name="password" />
-      </div>
-    
-    <div>
-        <button (click)="registerAsClient(newUser)">Зарегистрироваться как клиент</button>
-        <button (click)="registerAsCoach(newUser)">Зарегистрироваться как тренер</button>
-    </div>
-  </form>
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Имя</mat-label>
+        <input matInput [(ngModel)]="newUser.name" type="text" name="name" />
+      </mat-form-field>
+    </form>
+  </div>
   
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Фамилия</mat-label>
+        <input matInput [(ngModel)]="newUser.surname" type="text" name="surname" />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Отчество</mat-label>
+        <input matInput [(ngModel)]="newUser.patronymic" type="text" name="patronymic" />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Телефон</mat-label>
+        <input matInput [(ngModel)]="newUser.phone" type="text" name="phone" />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Пароль</mat-label>
+        <input matInput [(ngModel)]="newUser.password" type="password" name="password" />
+      </mat-form-field>
+    </form>
+  </div>
+  
+  <div>
+      <button mat-raised-button color="primary" (click)="registerAsClient(newUser)">Зарегистрироваться как клиент</button>
+  </div>
+
+  <div>
+      <button mat-raised-button color="primary" style="margin-top: 20px;" (click)="registerAsCoach(newUser)">Зарегистрироваться как тренер</button>
+  </div>
