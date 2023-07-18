@@ -1,52 +1,52 @@
-  <div>
+  <div class="field" style="margin-top: 15%;">
     <form class="example-form">
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" style="width: 220px;">
         <mat-label>Имя</mat-label>
         <input matInput [(ngModel)]="newUser.name" type="text" name="name" />
       </mat-form-field>
     </form>
   </div>
   
-  <div>
+  <div class="field">
     <form class="example-form">
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" style="width: 220px;">
         <mat-label>Фамилия</mat-label>
         <input matInput [(ngModel)]="newUser.surname" type="text" name="surname" />
       </mat-form-field>
     </form>
   </div>
 
-  <div>
+  <div class="field">
     <form class="example-form">
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" style="width: 220px;">
         <mat-label>Отчество</mat-label>
         <input matInput [(ngModel)]="newUser.patronymic" type="text" name="patronymic" />
       </mat-form-field>
     </form>
   </div>
 
-  <div>
+  <div class="field">
     <form class="example-form">
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" style="width: 220px;">
         <mat-label>Телефон</mat-label>
         <input matInput [(ngModel)]="newUser.phone" type="text" name="phone" />
       </mat-form-field>
     </form>
   </div>
 
-  <div>
+  <div class="field">
     <form class="example-form">
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" style="width: 220px;">
         <mat-label>Пароль</mat-label>
         <input matInput [(ngModel)]="newUser.password" type="password" name="password" />
       </mat-form-field>
     </form>
   </div>
   
-  <div>
-      <button mat-raised-button color="primary" (click)="registerAsClient(newUser)">Зарегистрироваться как клиент</button>
+  <div class="field">
+      <button mat-raised-button color="primary" (click)="registerAsClient(newUser)" style="width: 220px;">Зарегистрироваться как клиент</button>
   </div>
 
-  <div>
-      <button mat-raised-button color="primary" style="margin-top: 20px;" (click)="registerAsCoach(newUser)">Зарегистрироваться как тренер</button>
+  <div class="field">
+      <button mat-raised-button color="primary" style="margin-top: 20px; width: 220px" (click)="registerAsCoach(newUser)">Зарегистрироваться как тренер</button>
   </div>

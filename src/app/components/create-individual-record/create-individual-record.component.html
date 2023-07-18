@@ -1,18 +1,24 @@
-<form class="example-form">
-    <div>
-        <mat-form-field class="example-full-width">
+<div class="field" style="margin-top: 20%;">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" style="width: 220px;">
             <mat-label>Дата</mat-label>
             <input matInput [(ngModel)]="date" name="date" placeholder="дд-мм-гггг"/>
         </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field class="example-full-width">
+    </form>
+</div>
+
+<div class="field">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" style="width: 220px;">
             <mat-label>Время</mat-label>
             <input matInput [(ngModel)]="time" name="time" placeholder="чч:мм"/>
         </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field>
+    </form>
+</div>
+
+<div class="field">
+    <form class="example-form">
+        <mat-form-field style="width: 220px;">
             <mat-label>Вид спорта</mat-label>
             <mat-select>
                 <mat-option (click)="sportId=''">Не выбрано</mat-option>
@@ -21,14 +27,17 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-    </div>
-    <div>
-        <button mat-raised-button color="primary" (click)="getReservations(date, time, sportId)">Найти</button>
-    </div>
-</form>
+    </form>
+</div>
 
-<div *ngIf="reservations">
-    <mat-card *ngFor="let r of reservations">
+<div class="field">
+    <form class="example-form">
+        <button mat-raised-button color="primary" (click)="getReservations(date, time, sportId)" style="width: 220px;">Найти</button>
+    </form>
+</div>
+
+<div class="field" *ngIf="reservations">
+    <mat-card *ngFor="let r of reservations" style="width: 600px; margin-top: 20px;">
         <mat-card-content> 
             <h3>Тренер: {{r.coach.surname}} {{r.coach.name}} {{r.coach.patronymic}}</h3>
             <h3>Телефон тренера: {{r.coach.phone}}</h3>
@@ -36,6 +45,6 @@
             <h3>Начало: {{r.date}}</h3>
             <h3>Конец: {{r.endDate}}</h3>
         </mat-card-content>
-        <button style="width: 15%;" mat-raised-button color="primary" (click)="createRecord(r.id)">Записаться</button>
+        <button style="width: 15%; margin: 0 auto; width: 220px; margin-top: 15px; margin-bottom: 15px;" mat-raised-button color="primary" (click)="createRecord(r.id)">Записаться</button>
     </mat-card>
 </div>

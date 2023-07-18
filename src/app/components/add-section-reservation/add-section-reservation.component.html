@@ -1,39 +1,46 @@
-<form class="example-form">
-    <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>День недели</mat-label>
-        <input matInput [(ngModel)]="reservation.dayOfWeek" name="date" type="number"/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>Время проведения</mat-label>
-        <input matInput [(ngModel)]="reservation.time" name="duration" placeholder="чч:мм"/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>Продолжительность</mat-label>
-        <input matInput [(ngModel)]="reservation.duration" name="duration" placeholder="чч:мм"/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>Период проведения</mat-label>
-        <input matInput [(ngModel)]="reservation.period" name="period" placeholder="дд-мм-гггг"/>
-      </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field>
-            <mat-label>Секция</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let section of sections" [value]="section.name" (click)="reservation.sectionId = section.id">
-                {{section.name}}
-              </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div>
-        <button mat-raised-button color="primary" (click)="addReservation(reservation)">Добавить</button>
-    </div>
-  </form>
+<div class="field">
+  <mat-form-field style="width: 220px;">
+      <mat-label>День недели</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let d of daysOfWeek" [value]="d.name" (click)="reservation.dayOfWeek = d.id">
+          {{d.name}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="field">
+  <mat-form-field class="example-full-width" style="width: 220px;">
+    <mat-label>Время проведения</mat-label>
+    <input matInput [(ngModel)]="reservation.time" name="duration" placeholder="чч:мм"/>
+  </mat-form-field>
+</div>
+
+<div class="field">
+  <mat-form-field class="example-full-width" style="width: 220px;">
+    <mat-label>Продолжительность</mat-label>
+    <input matInput [(ngModel)]="reservation.duration" name="duration" placeholder="чч:мм"/>
+  </mat-form-field>
+</div>
+
+<div class="field">
+  <mat-form-field class="example-full-width" style="width: 220px;">
+    <mat-label>Период проведения</mat-label>
+    <input matInput [(ngModel)]="reservation.period" name="period" placeholder="дд-мм-гггг"/>
+  </mat-form-field>
+</div>
+
+<div class="field">
+    <mat-form-field style="width: 220px;">
+        <mat-label>Секция</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let section of sections" [value]="section.name" (click)="reservation.sectionId = section.id">
+            {{section.name}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="field">
+    <button mat-raised-button color="primary" (click)="addReservation(reservation)" style="width: 220px;">Добавить</button>
+</div>

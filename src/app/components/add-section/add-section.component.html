@@ -1,14 +1,14 @@
-<div>
+<div class="field" style="margin-top: 15%;">
     <form class="example-form">
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" style="width: 220px;">
           <mat-label>Название секции</mat-label>
           <input matInput [(ngModel)]="name" name="name">
         </mat-form-field>
     </form>
 </div>
 
-<div>
-    <mat-form-field>
+<div class="field">
+    <mat-form-field style="width: 220px;">
         <mat-label>Вид спорта</mat-label>
         <mat-select>
           <mat-option *ngFor="let sport of sports" [value]="sport.name" (click)="sportId = sport.id">
@@ -18,8 +18,8 @@
     </mat-form-field>
 </div>
 
-<div>
-    <mat-form-field>
+<div class="field">
+    <mat-form-field style="width: 220px;">
         <mat-label>Зал</mat-label>
         <mat-select>
           <mat-option *ngFor="let room of rooms" [value]="room.name" (click)="roomId = room.id">
@@ -29,6 +29,6 @@
     </mat-form-field>
 </div>
 
-<div>
-    <button (click)="addSection()" mat-raised-button color="primary">Добавить</button>
+<div class="field">
+    <button (click)="addSection()" mat-raised-button color="primary" style="width: 220px;">Добавить</button>
 </div>

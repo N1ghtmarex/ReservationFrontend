@@ -23,8 +23,8 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('role') == 'клиент') {
       this.auth.getClientData().subscribe((any => {
         localStorage.setItem('name', any.name)
-        localStorage.setItem('surname', any.name)
-        localStorage.setItem('patronymic', any.name)
+        localStorage.setItem('surname', any.surname)
+        localStorage.setItem('patronymic', any.patronymic)
 
         this.name = localStorage.getItem('name')
         this.surname = localStorage.getItem('surname')
@@ -35,8 +35,8 @@ export class HeaderComponent implements OnInit {
     else {
       this.auth.getCoachData().subscribe((any => {
         localStorage.setItem('name', any.name)
-        localStorage.setItem('surname', any.name)
-        localStorage.setItem('patronymic', any.name)
+        localStorage.setItem('surname', any.surname)
+        localStorage.setItem('patronymic', any.patronymic)
 
         this.name = localStorage.getItem('name')
         this.surname = localStorage.getItem('surname')
